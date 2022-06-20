@@ -7,13 +7,13 @@
   </p>
 
 [![Downloads](https://pepy.tech/badge/daric)](https://pepy.tech/project/daric)
-[![version](https://img.shields.io/badge/daric-v0.2.11-brightgreen)](https://img.shields.io/badge/daric-v0.2.11-brightgreen)
+[![version](https://img.shields.io/badge/daric-v0.2.15-brightgreen)](https://img.shields.io/badge/daric-v0.2.15-brightgreen)
 
 <div align="left">
 
 `DARIC`, or Differential Analysis for genomic Regions' Interaction with Compartments, is a computational framework to identify the quantitatively differential compartments from Hi-C-like data. For more details about the design and implementation of the framework, please check our preprint here.
 
-#Installation
+# Installation
 1. Install with `pip`.
 	+ `$ pip install daric`
 	+ To test the installation, please type `$ daric --help` in shell to see if help messages pop out.
