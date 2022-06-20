@@ -17,7 +17,6 @@
 1. Install with `pip`.
 	+ `$ pip install daric`
 	+ To test the installation, please type `$ daric --help` in shell to see if help messages pop out.
-2. Download the `daric` package from github and install locally.
 
 # Usage
 `DARIC` is composed of three commands: `calculate`, `normalize`, and `runhmm`. 
