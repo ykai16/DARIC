@@ -6,17 +6,54 @@
     A computational framework to find <span style="color:red"> ***quantitatively***</span> differential compartments between Hi-C datasets
   </p>
 
-[![Downloads](https://pepy.tech/badge/daric)](https://pepy.tech/project/daric)
 [![version](https://img.shields.io/badge/daric-v0.2.15-brightgreen)](https://img.shields.io/badge/daric-v0.2.15-brightgreen)
+[![Downloads](https://pepy.tech/badge/daric)](https://pepy.tech/project/daric)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
 <div align="left">
 
 `DARIC`, or Differential Analysis for genomic Regions' Interaction with Compartments, is a computational framework to identify the quantitatively differential compartments from Hi-C-like data. For more details about the design and implementation of the framework, please check our preprint here.
 
+# About DARIC
+## 1. Preferential Interaction Score
+PIS is used for measuring the compartmentalization type and strength for a genomic bin at a selected resolution. PIS is defined as the log-transformed ratio of the average interactions with compartments A to B.
+
+<img src="img/PreferentialScore.png" alt="PIS" width="800" height="auto" />
+
+## 2. DARIC pipeline
+DARIC includes the following four steps to identify genomic domains with quantitatively differential compartmentalization changes.
+
+1. Calculation of the genome-wide PIS for the samples;
+2. Smoothing of PIS in each sample to remove technical noises;
+3. Normalization.
+4. Identifying differential domains by a Hidden Markov Model and performing statistical analyses. 
+
+<img src="img/PIS_comparison_method_horizontal.png" alt="pipeline" width="800" height="auto" />
+
+
 # Installation
 1. Install with `pip`.
 	+ `$ pip install daric`
 	+ To test the installation, please type `$ daric --help` in shell to see if help messages pop out.
+
+# Required files to start a DARIC analysis
+It requires two types of information to start a DARIC analysis: (1) Compartment type information, i.e. PC1 values or eigenvectors (2) Normalized contact matrice for each chromosome resulted from juicertools. 
+
+## 1. PC1 track or eigenvectors
+The compartment type information can be the PC1 values or eigenvalues for each genomic bin in .bigwig format. By default, a positive value represents that the associated genomic bin is in active compartment A, and a negative value represents inactive compartment B. 
+
+## 2. Normalized contact matrice
+DARIC requires to take the OE normalized contact matrice for each individual chromasome from juicertools. Specifically, these contact matrice can be obtained by the following command. 
+
+```
+java -jar juicer_tools.1.7.5_linux_
+x64_jcuda.0.8.jar dump oe KR sample.hic $i $i BP 50kb sample_OE_matrix
+# i is chromsome number, please see details in the juciertools github page. 
+```
+The normalized contact matrix will be in the `sample_OE_matrix` folder. The path of `sample_OE_matrix` will be used in the PIS calculation command below.
+
 
 # Usage
 `DARIC` is composed of three commands: `calculate`, `normalize`, and `runhmm`. 
@@ -39,6 +76,8 @@ Options:
   -o, --outdir TEXT   path for output directory  [default: ./]
   --help              Show this message and exit.
 ```
+Please note that the resolution of the contact matrice in `-m` parameter has to be the same as the value assigned by `-r`. The resolution or bin size in the PC1 track (i.e. `-p`) can be different from the assigned resolution. Resolution of the output PIS is determined by `-r`.
+
 ## 2. Normalization of two PIS tracks
 ---
 We borrowed the idea of MAnorm, a normalization method designed for normalizing ChIP-seq datasets, to normalize the PIS data. `normalize` is the command for this task:
