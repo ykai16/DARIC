@@ -39,7 +39,7 @@ DARIC includes the following four steps to identify genomic domains with quantit
 	+ To test the installation, please type `$ daric --help` in shell to see if help messages pop out.
 
 # Required files to start a DARIC analysis
-It requires two types of information to start a DARIC analysis: (1) Compartment type information, i.e. PC1 values or eigenvectors (2) Normalized contact matrice for each chromosome resulted from juicertools. 
+It requires two types of information to start a DARIC analysis: (1) Compartment type information, i.e. PC1 values from [HOMER](http://homer.ucsd.edu/homer/interactions2/HiCpca.html) or eigenvectors from [Juicer](https://github.com/aidenlab/juicer). (2) Normalized contact matrice for each chromosome resulted from juicertools. 
 
 ## 1. PC1 track or eigenvectors
 The compartment type information can be the PC1 values or eigenvalues for each genomic bin in .bigwig format. By default, a positive value represents that the associated genomic bin is in active compartment A, and a negative value represents inactive compartment B. 
