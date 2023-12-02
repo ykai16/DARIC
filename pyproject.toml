@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "daric"
-version = "0.2.15"
+version = "0.2.18"
 description = "DARIC, a computational framework to find quantitatively differential compartments from Hi-C data"
 authors = ["Yan Kai <smilekai@gwmail.gwu.edu>"]
 readme = "README.md"

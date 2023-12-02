@@ -1,12 +1,12 @@
 <div align="center">
 
   <img src="img/daric_logo.png" alt="logo" width="300" height="auto" />
-  <h1></h1>
+  <h1>DARIC is just published at BMC Genomics! See more details [here](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-023-09675-w) </h1>
   <p>
     A computational framework to find <span style="color:red"> ***quantitatively***</span> differential compartments between Hi-C datasets
   </p>
 
-[![version](https://img.shields.io/badge/daric-v0.2.15-brightgreen)](https://img.shields.io/badge/daric-v0.2.15-brightgreen)
+[![version](https://img.shields.io/badge/daric-v0.2.18-brightgreen)](https://img.shields.io/badge/daric-v0.2.18-brightgreen)
 [![Downloads](https://pepy.tech/badge/daric)](https://pepy.tech/project/daric)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
@@ -14,7 +14,8 @@
 
 <div align="left">
 
-`DARIC`, or Differential Analysis for genomic Regions' Interaction with Compartments, is a computational framework to identify the quantitatively differential compartments from Hi-C-like data. For more details about the design and implementation of the framework, please check our preprint here.
+
+`DARIC`, or Differential Analysis for genomic Regions' Interaction with Compartments, is a computational framework to identify the quantitatively differential compartments from Hi-C-like data. For more details about the design and implementation of the framework, please check our paper published at [BMC Genomics](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-023-09675-w).
 
 # About DARIC
 ## 1. Preferential Interaction Score
@@ -129,3 +130,5 @@ Options:
   --help                 Show this message and exit.
 
 ```
+# Citation
+If you find DARIC useful in your research, please cite our paper [here](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-023-09675-w).
